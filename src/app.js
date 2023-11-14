@@ -10,9 +10,9 @@ const pathName = path.join(__dirname, "../public")
 const template_path = path.join(__dirname, "../src/template/views")
 const partials_path = path.join(__dirname, "../src/template/partials")
 
-console.log(`path name public ${pathName}`)
-console.log(`template_path name public ${template_path}`)
-console.log(`template_path name public ${partials_path}`)
+// console.log(`path name public ${pathName}`)
+// console.log(`template_path name public ${template_path}`)
+// console.log(`template_path name public ${partials_path}`)
 app.set('view engine', 'hbs');
 app.set('views', template_path);
 app.use(express.static(pathName));
