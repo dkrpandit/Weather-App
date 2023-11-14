@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather</title>
+  {{>headerLinks}}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+  .main_content {
+    font-size: 4.4rem;
+    margin-top: 5rem;
+
+  }
+  input{
+    border-radius: 1rem;
+    border: 2px solid black;
+    padding: 0.4rem;
+  }
+  @media (max-width: 720px) {
+    .main_content {
+    font-size: 2rem;
+    margin-top: 2rem;
+
+  }
+  }
+</style>
+
+<body>
+  {{>navbar}}
+  <div class="container-fluid main_menu">
+    <div class="row">
+      <div class="col-md-10 col-12 mx-auto">
+        <div class="main_content">
+          <form action="" class="from_box">
+            <input type="text" placeholder="Enter your city name" id="cityName" autocomplete="off">
+            <input type="submit" id="searchBtn" value="Search">
+          </form>
+          <div class="tempB">
+            <div id="DayDate"></div>
+            <div class="cityName" id="city"></div>
+            <div class="weather">
+              <span id="temp"></span> <span id="sky"></span>
+            </div>
+            <div class="humidity">
+              <span id="humidity"></span>
+            </div>
+            <div class="sunriseTime">
+              <span id="sunriseTime"></span>
+            </div>
+            <div class="sunsetTime">
+              <span id="sunsetTime"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{>footer}}
+  <script src="JS/weather.js"></script>
+</body>
+
+</html>
