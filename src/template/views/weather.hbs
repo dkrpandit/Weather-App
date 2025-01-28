@@ -1,67 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather</title>
-  {{>headerLinks}}
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    {{>headerLinks}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        
+
+        .search-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            margin-top:3rem;
+        }
+
+        .weather-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+            padding: 2rem;
+        }
+
+        .form-control:focus {
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+        }
+
+        #cityName {
+            border-radius: 0.5rem;
+        }
+
+        #searchBtn {
+            border-radius: 0.5rem;
+            padding: 0.5rem 2rem;
+        }
+
+        .weather-icon {
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+            color: #6c757d;
+        }
+
+        .cityName {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #212529;
+            margin-bottom: 1rem;
+        }
+
+        .weather {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #0d6efd;
+            margin-bottom: 1.5rem;
+        }
+
+        .weather-info {
+            color: #6c757d;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        #DayDate {
+            color: #6c757d;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+    </style>
 </head>
-<style>
-  .main_content {
-    font-size: 4.4rem;
-    margin-top: 5rem;
-
-  }
-  input{
-    border-radius: 1rem;
-    border: 2px solid black;
-    padding: 0.4rem;
-  }
-  @media (max-width: 720px) {
-    .main_content {
-    font-size: 2rem;
-    margin-top: 2rem;
-
-  }
-  }
-</style>
-
 <body>
-  {{>navbar}}
-  <div class="container-fluid main_menu">
-    <div class="row">
-      <div class="col-md-10 col-12 mx-auto">
-        <div class="main_content">
-          <form action="" class="from_box">
-            <input type="text" placeholder="Enter your city name" id="cityName" autocomplete="off">
-            <input type="submit" id="searchBtn" value="Search">
-          </form>
-          <div class="tempB">
-            <div id="DayDate"></div>
-            <div class="cityName" id="city"></div>
-            <div class="weather">
-              <span id="temp"></span> <span id="sky"></span>
-            </div>
-            <div class="humidity">
-              <span id="humidity"></span>
-            </div>
-            <div class="sunriseTime">
-              <span id="sunriseTime"></span>
-            </div>
-            <div class="sunsetTime">
-              <span id="sunsetTime"></span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  {{>footer}}
-  <script src="JS/weather.js"></script>
-</body>
+    {{>navbar}}
+    <div class="container-fluid main_menu">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="search-card">
+                    <form action="" class="row g-3">
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control form-control-lg" placeholder="Enter your city name" id="cityName" autocomplete="off">
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="submit" class="btn btn-primary btn-lg w-100" id="searchBtn" value="Search">
+                        </div>
+                    </form>
+                </div>
 
+                <div class="weather-card">
+                    <div id="DayDate" class="mb-3"></div>
+                    <div class="cityName" id="city"></div>
+                    <div class="weather">
+                        <span id="temp"></span>
+                        <span id="sky"></span>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="weather-info">
+                                <i class="fas fa-tint weather-icon"></i>
+                                <span id="humidity"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="weather-info">
+                                <i class="fas fa-sun weather-icon"></i>
+                                <span id="sunriseTime"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="weather-info">
+                                <i class="fas fa-moon weather-icon"></i>
+                                <span id="sunsetTime"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{>footer}}
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="JS/weather.js"></script>
+</body>
 </html>
